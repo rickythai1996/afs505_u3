@@ -59,15 +59,17 @@ Description: This README file will give you instruction to execute the FASTA fil
 
 6) run the slurm script by typing command: sbatch project2.Instruction
 
-7) After 6 hours of waiting, copy the blast file, named "File" to the home computer
+7) After 6 hours of waiting, copy the blast file, named "File" to the local home directory. Open the file with Atom. Save the file as text file: "File.txt"
 
-8) Import the File as a table to Microsoft Access Database, named AFS505 Final
+8) Open Microsoft Access Database. Go to External Data. Go to New Data Source. Import text file, "File.txt". Choose tab as the delimiter that separate each field. Save the table name as File in the Database. 
 
-9) Create A Query that combine the output with two columns, gene name and number of matches, sort descendingly:
+9) Check if the gene name is correctly locate in [Field1]
+
+10) Create A Query that combine the output with two columns, gene name and number of matches, sort descendingly:
    SQL Command:
    SELECT Left([Field1],Len([Field1])-2) AS Expr1, Count(Left([Field1],Len([Field1])-2)) AS Expr2
    FROM File
    GROUP BY Left([Field1],Len([Field1])-2)
    ORDER BY Count(Left([Field1],Len([Field1])-2)) DESC;
 
-10) Export the Query to deliminated text file, named File Query
+11) Export the Query to deliminated text file, named File Query
