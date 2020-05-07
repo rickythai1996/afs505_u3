@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+#SBATCH --partition=ficklin_class
+#SBATCH --account=ficklin_class
+#SBATCH --job-name=swissprot_blastp
+#SBATCH --output=swissprot.pep.out
+#SBATCH --error=swissprot.err
+#SBATCH --time=0-24:00:00
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=5
+
+module add blast
+module add java nextflow
+
+nextflow run project.nf -profile slurm
